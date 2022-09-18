@@ -11,19 +11,72 @@
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота ""интеллектом""
 
-from random import randint
+# Человек против человека
 
-def take_k (name):
+# from random import randint
+
+# def take_k (name):
+#     x = int(input(f"{name}, введите количество конфет от 1 до 28: "))
+#     while x < 1 or x > 28:
+#         x = int(input(f"{name}, неверно число. Введите количество конфет от 1 до 28: "))
+#     return x
+
+# def p_print(value):
+#     print(f"На столе осталось {value} конфет.")
+
+# player1 = input("Первый игрок: ")
+# player2 = input("Второй игрок: ")
+# value = int(input("Количество конфет на столе: ")) # по условию 2021, но добавила это, чтобы быстрее проверять работоспособность.
+# flag = randint(0,2)
+# if flag:
+#     print(f"Первый ход у игрока {player1}")
+# else:
+#     print(f"Первый ход у игрока {player2}")
+
+# count1 = 0 
+# count2 = 0
+
+# while value > 28:
+#     if flag:
+#         k = take_k (player1)
+#         count1 += k
+#         value -= k
+#         flag = False
+#         p_print(value)
+#     else:
+#         k = take_k (player2)
+#         count2 += k
+#         value -= k
+#         flag = True
+#         p_print(value)
+
+# if flag:
+#     print(f"Выиграл {player1}")
+# else:
+#     print(f"Выиграл {player2}")
+
+
+# Человек против бота
+
+from random import randint
+from re import X
+
+def take_p (name):
     x = int(input(f"{name}, введите количество конфет от 1 до 28: "))
     while x < 1 or x > 28:
         x = int(input(f"{name}, неверно число. Введите количество конфет от 1 до 28: "))
     return x
 
-def p_print(value):
-    print(f"На на столе осталось {value} конфет.")
+def take_b (x):
+    x = randint(1,29)
+    return x
+
+def p_print(name, k, valuelue):
+    print(f"{name} взял {k} конфет. На столе осталось {value} конфет.")
 
 player1 = input("Первый игрок: ")
-player2 = input("Второй игрок: ")
+player2 = 'bot'
+print(f"Второй игрок {player2}")
 value = int(input("Количество конфет на столе: ")) # по условию 2021, но добавила это, чтобы быстрее проверять работоспособность.
 flag = randint(0,2)
 if flag:
@@ -36,17 +89,17 @@ count2 = 0
 
 while value > 28:
     if flag:
-        k = take_k (player1)
+        k = take_p (player1)
         count1 += k
         value -= k
         flag = False
-        p_print(value)
+        p_print(player1, k, value)
     else:
-        k = take_k (player2)
+        k = take_b (player2)
         count2 += k
         value -= k
         flag = True
-        p_print(value)
+        p_print(player2, k, value)
 
 if flag:
     print(f"Выиграл {player1}")
