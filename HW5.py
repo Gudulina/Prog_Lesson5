@@ -58,6 +58,57 @@
 
 # Человек против бота
 
+# from random import randint
+# from re import X
+
+# def take_p (name):
+#     x = int(input(f"{name}, введите количество конфет от 1 до 28: "))
+#     while x < 1 or x > 28:
+#         x = int(input(f"{name}, неверно число. Введите количество конфет от 1 до 28: "))
+#     return x
+
+# def take_b (x):
+#     x = randint(1,29)
+#     return x
+
+# def p_print(name, k, valuelue):
+#     print(f"{name} взял {k} конфет. На столе осталось {value} конфет.")
+
+# player1 = input("Первый игрок: ")
+# player2 = 'bot'
+# print(f"Второй игрок {player2}")
+# value = int(input("Количество конфет на столе: ")) # по условию 2021, но добавила это, чтобы быстрее проверять работоспособность.
+# flag = randint(0,2)
+# if flag:
+#     print(f"Первый ход у игрока {player1}")
+# else:
+#     print(f"Первый ход у игрока {player2}")
+
+# count1 = 0 
+# count2 = 0
+
+# while value > 28:
+#     if flag:
+#         k = take_p (player1)
+#         count1 += k
+#         value -= k
+#         flag = False
+#         p_print(player1, k, value)
+#     else:
+#         k = take_b (player2)
+#         count2 += k
+#         value -= k
+#         flag = True
+#         p_print(player2, k, value)
+
+# if flag:
+#     print(f"Выиграл {player1}")
+# else:
+#     print(f"Выиграл {player2}")
+
+
+# Человек против бота с интеллектом
+
 from random import randint
 from re import X
 
@@ -68,7 +119,7 @@ def take_p (name):
     return x
 
 def take_b (x):
-    x = randint(1,29)
+    x = value % 29
     return x
 
 def p_print(name, k, valuelue):
